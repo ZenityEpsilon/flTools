@@ -1,0 +1,1 @@
+Create articles and portfolio in /static/images/

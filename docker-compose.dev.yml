@@ -1,0 +1,71 @@
+version: '3.9'
+services:
+    frontend:
+        build:
+            context: ./frontend
+        restart: unless-stopped
+        networks:
+            - bridge
+        env_file:
+            - ./frontend/.env
+        depends_on:
+            - nginx
+        logging:
+            driver: 'json-file'
+            options:
+                max-size: '50m'
+    nginx:
+        image: 'nginx:1.19'
+        restart: always
+        ports:
+            - '8000:80'
+        networks:
+            - bridge
+            - web
+        volumes:
+            - ./static:/var/www/public
+            - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+            - ./nginx/conf.d:/etc/nginx/conf.d
+            - /etc/localtime:/etc/localtime/:ro
+    backend:
+        build:
+            context: laravel
+        environment:
+            - DB_HOST=mysql
+            - DB_PORT=3306
+            - DB_USERNAME=${DB_USER}
+            - DB_DATABASE=${DB_NAME}
+            - DB_PASSWORD=${DB_PASS}
+        volumes:
+            - ./laravel:/var/www
+            - ./static/images:/var/www/public/images
+        depends_on:
+            - mysql
+        networks:
+            - bridge
+
+    mysql:
+        restart: always
+        build:
+            context: mysql
+        env_file:
+            - .env
+        ports:
+            - '127.0.0.1:3060:3060'
+        volumes:
+            - db:/bitnami/mariadb/data
+        environment:
+            - MARIADB_DATABASE=${DB_NAME}
+            - MARIADB_USER=${DB_USER}
+            - MARIADB_PASSWORD=${DB_PASS}
+        networks:
+            - bridge
+networks:
+    web:
+        name: web
+        external: true
+    bridge:
+        driver: bridge
+volumes:
+    db:
+        driver: local
