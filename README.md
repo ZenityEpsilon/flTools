@@ -1,1 +1,6 @@
-Create articles and portfolio in /static/images/
+#Freelancer POB administrating
+---
+
+```Bash
+docker-compose build
+docker-compose up -d
