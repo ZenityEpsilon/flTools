@@ -1,4 +1,7 @@
 <template>
-  Hello, freelancer!
-  <NuxtPage />
+    <core-menu></core-menu>
+    <NuxtPage />
 </template>
+<style lang="scss">
+@import '../assets/scss/default.scss';
+</style>
