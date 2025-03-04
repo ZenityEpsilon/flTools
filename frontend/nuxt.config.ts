@@ -15,7 +15,6 @@ export default defineNuxtConfig({
     },
     modules: [
         '@nuxtjs/tailwindcss',
-        '@vite-pwa/nuxt',
         [
             '@nuxtjs/i18n',
             {
@@ -25,15 +24,21 @@ export default defineNuxtConfig({
                 detectBrowserLanguage: false,
                 redirectOn: false,
                 locales: [
-                    { code: 'ua', iso: 'ua-UA', file: 'ua.js' },
-                    { code: 'en', iso: 'en-EN', file: 'en.js' },
+                    { code: 'ua', language: 'ua-UA', file: 'ua.js' },
+                    { code: 'en', language: 'en-EN', file: 'en.js' },
                 ],
             },
         ],
     ],
-    css: ['assets/css/fonts.css'],
+    css: ['assets/css/fonts.css', 'assets/scss/default.scss'],
     vite: {
-        //plugins: [eslintPlugin()],
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    api: 'modern',
+                },
+            },
+        },
     },
     nitro: {
         devProxy: {

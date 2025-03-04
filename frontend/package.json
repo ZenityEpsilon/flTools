@@ -13,20 +13,19 @@
   },
   "devDependencies": {
     "@nuxtjs/i18n": "^8.0.0",
-    "@nuxtjs/tailwindcss": "^6.10.4",
+    "@nuxtjs/tailwindcss": "^6.13.1",
     "@typescript-eslint/eslint-plugin": "^6.19.0",
     "@typescript-eslint/parser": "^6.19.0",
-    "@vite-pwa/nuxt": "^0.4.0",
     "autoprefixer": "^10.4.17",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-vue": "^9.20.1",
-    "nuxt": "3.9.3",
+    "nuxt": "3.12.4",
     "nuxt-purgecss": "^2.0.0",
-    "postcss": "^8.4.33",
+    "postcss": "^8.5.3",
     "prettier": "^3.2.4",
-    "sass": "^1.70.0",
+    "sass": "^1.85.1",
     "vite-plugin-eslint": "^1.8.1"
   },
   "overrides": {
@@ -36,4 +35,3 @@
     "vue-the-mask": "^0.11.1"
   }
 }
-
