@@ -1,11 +1,21 @@
 @font-face {
     font-family: 'Agency FB';
     src: url('fonts/subset-AgencyFB-Bold.eot');
-    src: url('fonts/subset-AgencyFB-Bold.eot?#iefix') format('embedded-opentype'),
-    url('fonts/subset-AgencyFB-Bold.woff2') format('woff2'),
-    url('fonts/subset-AgencyFB-Bold.woff') format('woff');
+    src:
+        url('fonts/subset-AgencyFB-Bold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/subset-AgencyFB-Bold.woff2') format('woff2'),
+        url('fonts/subset-AgencyFB-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Arial Unicode MS';
+    src:
+        url('fonts/ARIALUNI.woff2') format('woff2'),
+        url('fonts/ARIALUNI.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
