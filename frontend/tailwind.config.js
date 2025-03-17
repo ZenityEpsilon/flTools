@@ -10,7 +10,18 @@ module.exports = {
     darkMode: 'class', // or 'media' or 'class'
     theme: {
         extend: {},
-
+        colors: {
+            background: {
+                DEFAULT: '#382e5e',
+                darker: '#0d1117',
+            },
+            blue: {
+                DEFAULT: '#87c2e0',
+            },
+            yellow: {
+                DEFAULT: '#ffff00',
+            },
+        },
         flex: {
             12: '0 0 100%',
             6: '0 0 50%',

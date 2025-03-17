@@ -28,27 +28,35 @@ const value = computed({
 });
 
 const { uid } = getCurrentInstance();
+const element = ref<HTMLElement | null>(null);
 const search = ref('');
 const optionsList = computed(() => props.options?.filter((item) => item.infotext.includes(search.value)));
 
 const isExpanded = ref(false);
+const onOuterClick = (event: Event) => {
+    if (!element.value?.parentElement?.contains(event.target as HTMLElement)) {
+        isExpanded.value = false;
+    }
+};
 const select = (item) => {
     value.value = item;
     isExpanded.value = false;
     search.value = '';
 };
+onMounted(() => document.addEventListener('click', onOuterClick));
+onUnmounted(() => document.removeEventListener('click', onOuterClick));
 </script>
 <template>
     <div class="select">
         <label :for="uid" class="select-label">{{ label }}</label>
-        <div class="select-container" @blur="isExpanded = false">
+        <div class="select-container" ref="element">
             <input
                 type="text"
                 :id="uid"
                 class="select-search"
+                @focus="isExpanded = true"
                 :placeholder="value.infotext"
                 v-model="search"
-                @focus="isExpanded = true"
             />
             <svg class="icons icons_arrow select-searchArrow" :class="{ 'select-searchArrow_expanded': isExpanded }">
                 <use xlink:href="/public/icons.svg#arrow"></use>
