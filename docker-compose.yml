@@ -47,7 +47,6 @@ services:
             - mysql
         networks:
             - bridge
-
     mysql:
         restart: always
         build:
