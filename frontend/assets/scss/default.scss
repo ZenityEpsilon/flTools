@@ -1,5 +1,22 @@
+@use 'sass:math';
 @use 'icons';
 
 * {
-    font-family: 'Arial Unicode MS', serif;
+    @apply text-blue;
+    font-family: 'Agency FB', serif;
+}
+html {
+    @apply bg-background-darker;
+}
+.layout {
+    @apply max-w-full mx-auto w-full;
+    @screen md {
+        max-width: 768px + math.div(768px, 10px);
+    }
+    @screen lg {
+        max-width: 1024px + math.div(1024px, 10px);
+    }
+    @screen xl {
+        max-width: 1440px + math.div(1440px, 10px);
+    }
 }

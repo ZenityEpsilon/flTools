@@ -21,6 +21,9 @@ module.exports = {
             yellow: {
                 DEFAULT: '#ffff00',
             },
+            black: {
+                DEFAULT: '#000',
+            },
         },
         flex: {
             12: '0 0 100%',
